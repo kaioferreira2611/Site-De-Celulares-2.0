@@ -1,0 +1,1016 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marques Corporation | Tecnologia</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #fff;
+    color: #1d1d1f;
+}
+
+/* MENU */
+
+header {
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #eee;
+}
+
+nav {
+    max-width: 1250px;
+    margin: auto;
+    height: 65px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 750;
+    color: #111;
+    text-decoration: none;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.menu a:hover {
+    color: #0071e3;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #0071e3;
+    color: white;
+    border-radius: 50%;
+    font-size: 10px;
+    padding: 3px 6px;
+}
+
+/* PESQUISA */
+
+.search-container {
+    background: #f5f5f7;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 20px 15px 45px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: white;
+    font-size: 15px;
+}
+
+.search-box span {
+    position: absolute;
+    left: 15px;
+    top: 13px;
+    font-size: 19px;
+}
+
+/* BANNER */
+
+.hero {
+    background: #f5f5f7;
+    text-align: center;
+    padding: 85px 20px 65px;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    letter-spacing: -2px;
+    font-weight: 750;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 440px;
+    height: 300px;
+    object-fit: contain;
+    margin-top: 15px;
+}
+
+.primary-button {
+    display: inline-block;
+    background: #0071e3;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .2s;
+}
+
+.primary-button:hover {
+    background: #005bb5;
+}
+
+/* CATEGORIAS */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding: 35px 15px;
+    flex-wrap: wrap;
+}
+
+.category {
+    cursor: pointer;
+    border: none;
+    background: none;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    transition: .2s;
+}
+
+.category:hover,
+.category.active {
+    color: #0071e3;
+}
+
+.category-icon {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+/* PRODUTOS */
+
+.products-section {
+    max-width: 1250px;
+    margin: 50px auto;
+    padding: 0 25px;
+}
+
+.section-title {
+    font-size: 35px;
+    letter-spacing: -1px;
+    margin-bottom: 35px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: #f5f5f7;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: .3s;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.product-card button {
+    background: #0071e3;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 11px 25px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.product-card button:hover {
+    background: #005bb5;
+}
+
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    color: #777;
+}
+
+/* DESTAQUE */
+
+.promo {
+    margin: 70px auto;
+    max-width: 1200px;
+    background: #111;
+    color: white;
+    border-radius: 25px;
+    padding: 65px 25px;
+    text-align: center;
+}
+
+.promo h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.promo p {
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+/* CARRINHO */
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 200;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+
+.cart-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 100%;
+    max-width: 430px;
+    height: 100vh;
+    background: white;
+    z-index: 201;
+    padding: 25px;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.cart-header h2 {
+    font-size: 25px;
+}
+
+.close-cart {
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 75px;
+    height: 75px;
+    object-fit: contain;
+    background: #f5f5f7;
+    border-radius: 10px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    margin-bottom: 7px;
+}
+
+.cart-item-info p {
+    color: #555;
+    font-size: 14px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.quantity button {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.remove {
+    background: none;
+    border: none;
+    color: #e33;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.checkout-button {
+    width: 100%;
+    background: #0071e3;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.checkout-button:hover {
+    background: #005bb5;
+}
+
+.empty-cart {
+    text-align: center;
+    color: #888;
+    margin-top: 70px;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #f5f5f7;
+    padding: 45px 25px;
+    text-align: center;
+    color: #777;
+    font-size: 13px;
+    line-height: 2;
+}
+
+footer strong {
+    color: #222;
+    font-size: 18px;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 850px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu {
+        gap: 12px;
+    }
+}
+
+@media(max-width: 550px) {
+    nav {
+        padding: 0 15px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .categories {
+        gap: 22px;
+    }
+
+    .promo h2 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<header>
+<nav>
+    <a href="#" class="logo">◉ Marques Corporation</a>
+
+    <ul class="menu">
+        <li><a href="#">Início</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#categorias">Categorias</a></li>
+        <li><a href="#contato">Contato</a></li>
+    </ul>
+
+    <div class="nav-actions">
+        <button class="cart-button" onclick="openCart()" aria-label="Abrir carrinho">
+            🛒
+            <span class="cart-count" id="cart-count">0</span>
+        </button>
+    </div>
+</nav>
+</header>
+
+<!-- PESQUISA -->
+<div class="search-container">
+    <div class="search-box">
+        <span>⌕</span>
+        <input
+            type="search"
+            id="search"
+            placeholder="Pesquisar produtos..."
+            oninput="filterProducts()"
+        >
+    </div>
+</div>
+
+<!-- BANNER -->
+<section class="hero">
+    <h1>O futuro está aqui.</h1>
+    <p>Conheça a tecnologia que transforma o seu dia.</p>
+    <a href="#produtos" class="primary-button">Comprar agora</a>
+
+    <br>
+
+    <img
+        src="https://pngimg.com/d/iphone_14_PNG6.png"
+        alt="iPhone em destaque"
+    >
+</section>
+
+<!-- CATEGORIAS -->
+<section class="categories" id="categorias">
+
+    <button class="category active" onclick="filterCategory('Todos', this)">
+        <span class="category-icon">✨</span>
+        Todos
+    </button>
+
+    <button class="category" onclick="filterCategory('iPhone', this)">
+        <span class="category-icon">📱</span>
+        iPhone
+    </button>
+
+    <button class="category" onclick="filterCategory('iPad', this)">
+        <span class="category-icon">▣</span>
+        iPad
+    </button>
+
+    <button class="category" onclick="filterCategory('MacBook', this)">
+        <span class="category-icon">💻</span>
+        MacBook
+    </button>
+
+    <button class="category" onclick="filterCategory('Watch', this)">
+        <span class="category-icon">⌚</span>
+        Apple Watch
+    </button>
+
+    <button class="category" onclick="filterCategory('AirPods', this)">
+        <span class="category-icon">🎧</span>
+        AirPods
+    </button>
+
+</section>
+
+<!-- PRODUTOS -->
+<main class="products-section" id="produtos">
+
+    <p style="
+    color: #0071e3;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+">
+    Disponíveis no momento
+</p>
+
+<h2 class="section-title">Conheça nossos produtos.</h2>
+
+    <div class="products" id="product-list"></div>
+
+</main>
+
+<!-- PROMOÇÃO -->
+<section class="promo">
+    <h2>Uma nova experiência.</h2>
+    <p>Encontre seu próximo dispositivo favorito.</p>
+    <a href="#produtos" class="primary-button">Explorar produtos</a>
+</section>
+
+<!-- CARRINHO -->
+<div class="cart-overlay" id="overlay" onclick="closeCart()"></div>
+
+<aside class="cart-panel" id="cart">
+
+    <div class="cart-header">
+        <h2>Minha sacola</h2>
+        <button class="close-cart" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+        <p class="empty-cart">Sua sacola está vazia.</p>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total</span>
+            <span id="cart-total">R$ 0,00</span>
+        </div>
+
+        <button class="checkout-button" onclick="checkout()">
+            Finalizar compra
+        </button>
+    </div>
+
+</aside>
+
+<!-- RODAPÉ -->
+<footer id="contato">
+    <strong>◉ Marques Corporation</strong>
+    <p>Tecnologia, qualidade e inovação.</p>
+    <p>Atendimento: contato@celularesshop.com</p>
+    <p>© 2026 Celulares Shop. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+
+/* PRODUTOS */
+
+const products = [
+    {
+        id: 1,
+        name: "iPhone 14",
+        category: "iPhone",
+        description: "128GB • Tela Super Retina XDR",
+        price: 3999,
+        image: "https://pngimg.com/d/iphone_14_PNG6.png"
+    },
+    {
+    
+    id: 2,
+    name: "iPhone 15",
+    category: "iPhone",
+    description: "128GB • Dynamic Island",
+    price: 4499,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP-Rm_5DB1ZyFJaWlkd8vaCOUYJYetXQBWj7bwoLAGug&s=10"
+
+    },
+    {
+        
+    id: 3,
+    name: "iPhone 16",
+    category: "iPhone",
+    description: "128GB • Chip A18",
+    price: 5299,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN34uzeitxVtkIhWxZZ5Gb5hiiCKFJ-khUx0AtK9FHqA&s=10"
+
+    },
+    {
+        
+    id: 4,
+    name: "iPad Pro",
+    category: "iPad",
+    description: "Chip M5 • Tela Ultra Retina XDR",
+    price: 6999,
+    image: "https://www.apple.com/v/ipad-pro/aw/images/overview/hero/hero_endframe__du5kcy4qnxkm_large.jpg"
+
+    },
+    {
+        id: 5,
+        name: "MacBook Pro",
+        category: "MacBook",
+        description: "Design premium • Desempenho profissional",
+        price: 10999,
+        image: "https://pngimg.com/d/macbook_PNG8.png"
+    },
+    {
+        id: 6,
+        name: "Apple Watch",
+        category: "Watch",
+        description: "Monitoramento • Tecnologia",
+        price: 2499,
+        image: "https://pngimg.com/d/apple_watch_PNG9.png"
+    },
+    {
+        id: 7,
+        name: "AirPods Pro",
+        category: "AirPods",
+        description: "Áudio imersivo • Cancelamento de ruído",
+        price: 1899,
+        image: "https://pngimg.com/d/airpods_PNG18.png"
+    },
+    {
+        id: 8,
+        name: "iPhone 13",
+        category: "iPhone",
+        description: "128GB • Câmera dupla",
+        price: 2999,
+        image: "https://pngimg.com/d/iphone_13_PNG30.png"
+    },
+    {
+    
+    id: 10,
+    name: "iPhone Air",
+    category: "iPhone",
+    description: "256GB • Design ultrafino",
+    price: 10999,
+    image: "https://images.apple.com/v/iphone-air/g/images/overview/welcome/hero__c8vidxwr9imq_xlarge.jpg"
+
+    }
+];
+
+let cart = JSON.parse(localStorage.getItem("celulares-cart")) || [];
+let selectedCategory = "Todos";
+
+/* FORMATAÇÃO DE PREÇO */
+
+function money(value) {
+    return value.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+}
+
+/* MOSTRAR PRODUTOS */
+
+function renderProducts() {
+
+    const list = document.getElementById("product-list");
+    const search = document.getElementById("search").value.toLowerCase();
+
+    const filtered = products.filter(product => {
+
+        const matchesCategory =
+            selectedCategory === "Todos" ||
+            product.category === selectedCategory;
+
+        const matchesSearch =
+            product.name.toLowerCase().includes(search) ||
+            product.description.toLowerCase().includes(search);
+
+        return matchesCategory && matchesSearch;
+    });
+
+    list.innerHTML = "";
+
+    if (filtered.length === 0) {
+        list.innerHTML =
+            '<p class="no-results">Nenhum produto encontrado.</p>';
+        return;
+    }
+
+    filtered.forEach(product => {
+
+        list.innerHTML += `
+            <article class="product-card">
+
+                <img src="${product.image}"
+                     alt="${product.name}"
+                     loading="lazy"
+                     onerror="this.style.display='none'">
+
+                <h3>${product.name}</h3>
+
+                <p>${product.description}</p>
+
+                <div class="price">${money(product.price)}</div>
+
+                <button onclick="addToCart(${product.id})">
+                    Adicionar à sacola
+                </button>
+
+            </article>
+        `;
+    });
+}
+
+/* PESQUISA */
+
+function filterProducts() {
+    renderProducts();
+}
+
+/* FILTRO DE CATEGORIA */
+
+function filterCategory(category, button) {
+
+    selectedCategory = category;
+
+    document.querySelectorAll(".category").forEach(item => {
+        item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    renderProducts();
+
+    document.getElementById("produtos").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+/* ADICIONAR AO CARRINHO */
+
+function addToCart(id) {
+
+    const product = products.find(p => p.id === id);
+
+    const existing = cart.find(item => item.id === id);
+
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            ...product,
+            quantity: 1
+        });
+    }
+
+    updateCart();
+    openCart();
+}
+
+/* ATUALIZAR CARRINHO */
+
+function updateCart() {
+
+    const items = document.getElementById("cart-items");
+
+    let total = 0;
+    let quantityTotal = 0;
+
+    items.innerHTML = "";
+
+    if (cart.length === 0) {
+        items.innerHTML =
+            '<p class="empty-cart">Sua sacola está vazia.</p>';
+    }
+
+    cart.forEach(item => {
+
+        total += item.price * item.quantity;
+        quantityTotal += item.quantity;
+
+        items.innerHTML += `
+            <div class="cart-item">
+
+                <img src="${item.image}" alt="${item.name}"
+                     onerror="this.style.display='none'">
+
+                <div class="cart-item-info">
+
+                    <h4>${item.name}</h4>
+
+                    <p>${money(item.price)}</p>
+
+                    <div class="quantity">
+
+                        <button onclick="changeQuantity(${item.id}, -1)">
+                            -
+                        </button>
+
+                        <span>${item.quantity}</span>
+
+                        <button onclick="changeQuantity(${item.id}, 1)">
+                            +
+                        </button>
+
+                    </div>
+
+                    <button class="remove"
+                        onclick="removeItem(${item.id})">
+                        Remover
+                    </button>
+
+                </div>
+            </div>
+        `;
+    });
+
+    document.getElementById("cart-total").textContent = money(total);
+
+    document.getElementById("cart-count").textContent = quantityTotal;
+
+    localStorage.setItem("celulares-cart", JSON.stringify(cart));
+}
+
+/* ALTERAR QUANTIDADE */
+
+function changeQuantity(id, change) {
+
+    const item = cart.find(p => p.id === id);
+
+    if (!item) return;
+
+    item.quantity += change;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(p => p.id !== id);
+    }
+
+    updateCart();
+}
+
+/* REMOVER PRODUTO */
+
+function removeItem(id) {
+
+    cart = cart.filter(item => item.id !== id);
+
+    updateCart();
+}
+
+/* ABRIR CARRINHO */
+
+function openCart() {
+
+    document.getElementById("cart").classList.add("open");
+
+    document.getElementById("overlay").classList.add("open");
+}
+
+/* FECHAR CARRINHO */
+
+function closeCart() {
+
+    document.getElementById("cart").classList.remove("open");
+
+    document.getElementById("overlay").classList.remove("open");
+}
+
+/* FINALIZAR COMPRA */
+
+function checkout() {
+
+    if (cart.length === 0) {
+        alert("Adicione algum produto à sua sacola primeiro!");
+        return;
+    }
+
+    const order = cart.map(item =>
+        `${item.quantity}x ${item.name} - ${money(item.price * item.quantity)}`
+    ).join("\n");
+
+    const total = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+    );
+
+    const message =
+        "Olá! Gostaria de realizar este pedido:\n\n" +
+        order +
+        "\n\nTotal: " + money(total);
+
+    // Troque pelo número de WhatsApp da sua loja.
+    const whatsapp = "5500000000000";
+
+    if (whatsapp === "5500000000000") {
+        alert(
+            "Carrinho pronto!\n\n" +
+            message +
+            "\n\nConfigure o número de WhatsApp da loja no código para receber pedidos."
+        );
+        return;
+    }
+
+    window.open(
+        "https://wa.me/" + whatsapp + "?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+}
+
+/* INICIALIZAÇÃO */
+
+renderProducts();
+updateCart();
+
+</script>
+
+</body>
+</html>
